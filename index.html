@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dear Martin – Learning Page</title>
+
+<style>
+:root {
+    --red: #b71c1c;
+    --light-red: #fdeaea;
+    --bg: #f5f5f5;
+    --text: #222;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, var(--red), #e53935);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+/* NAVIGATION */
+nav {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 5px 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--red);
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* MAIN */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 10px;
+}
+
+.section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+    color: var(--red);
+    margin-top: 0;
+}
+
+/* LISTS */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* QUOTE */
+.quote {
+    background-color: var(--light-red);
+    padding: 15px;
+    border-left: 6px solid var(--red);
+    font-style: italic;
+    margin: 15px 0;
+}
+
+/* QUIZ */
+.quiz {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.quiz button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background-color: var(--red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quiz button:hover {
+    opacity: 0.9;
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    background-color: #ddd;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Dear Martin</h1>
+    <p>A learning page about the novel by Nic Stone</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#author">Author</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#characters">Characters</a></li>
+        <li><a href="#quote">Quote</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+    </ul>
+</nav>
+
+<main>
+
+<section class="section" id="author">
+    <h2>About the Author</h2>
+    <p>
+        Nic Stone is an American writer.
+        She writes books for young readers and teenagers.
+        <br><br>
+        Her books talk about racism, justice, and society.
+        <strong>Dear Martin</strong> was published in 2018.
+    </p>
+</section>
+
+<section class="section" id="summary">
+    <h2>Summary</h2>
+    <p>
+        The story is about Justyce McAllister, a Black teenager.
+        He is smart and wants to become a lawyer.
+        <br><br>
+        One night, Justyce has a very unfair experience with the police.
+        After this, he starts writing letters to Dr. Martin Luther King Jr.
+        <br><br>
+        In the letters, he talks about racism, fear, and injustice.
+        The book shows problems in American society.
+    </p>
+</section>
+
+<section class="section" id="themes">
+    <h2>Main Themes</h2>
+    <ul>
+        <li>Racism</li>
+        <li>Justice and injustice</li>
+        <li>Police violence</li>
+        <li>Identity</li>
+        <li>Friendship</li>
+    </ul>
+</section>
+
+<section class="section" id="characters">
+    <h2>Main Characters</h2>
+    <ul>
+        <li><strong>Justyce McAllister:</strong> Main character, thoughtful and calm.</li>
+        <li><strong>Quan Banks:</strong> His childhood friend.</li>
+        <li><strong>Manny Rivers:</strong> A student with racist views.</li>
+        <li><strong>Jared:</strong> Justyce’s best friend.</li>
+    </ul>
+</section>
+
+<section class="section" id="quote">
+    <h2>Important Quote</h2>
+    <p class="quote">
+        “I can’t change where I come from, but I can change where I’m going.”
+    </p>
+    <p>
+        This quote means that Justyce believes in change and a better future.
+    </p>
+</section>
+
+<section class="section" id="quiz">
+    <h2>Mini Quiz</h2>
+
+    <div class="quiz">
+        <p><strong>1. Who is Justyce?</strong></p>
+        <button onclick="answer(1)">A Black teenager and good student</button><br>
+        <button onclick="wrong(1)">A police officer</button>
+
+        <div id="result1" class="result"></div>
+    </div>
+
+    <div class="quiz">
+        <p><strong>2. Why does Justyce write letters?</strong></p>
+        <button onclick="answer(2)">To talk about racism and injustice</button><br>
+        <button onclick="wrong(2)">To become famous</button>
+
+        <div id="result2" class="result"></div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>Learning page by Vincent</p>
+</footer>
+
+<script>
+function answer(n) {
+    document.getElementById("result" + n).innerHTML = "Correct ✔️";
+    document.getElementById("result" + n).style.color = "green";
+}
+
+function wrong(n) {
+    document.getElementById("result" + n).innerHTML = "Not correct ❌ Try again.";
+    document.getElementById("result" + n).style.color = "red";
+}
+
+console.log("Advanced Dear Martin page loaded");
+</script>
+
+</body>
+</html>
