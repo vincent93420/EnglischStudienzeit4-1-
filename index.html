@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dear Martin – Learning Page</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
+/* CSS VARIABLES FOR CONSISTENCY */
 :root {
-    --red: #b71c1c;
-    --light-red: #fdeaea;
-    --bg: #f5f5f5;
-    --text: #222;
+    --primary-red: #d32f2f;       /* Darker, more serious red */
+    --accent-red: #ffcdd2;        /* Light red for backgrounds */
+    --dark-grey: #333;
+    --light-bg: #f4f6f8;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 * {
@@ -18,139 +24,214 @@
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif; /* Cleaner text font */
+    background-color: var(--light-bg);
+    color: var(--dark-grey);
+    line-height: 1.7;
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, var(--red), #e53935);
-    color: white;
-    padding: 50px 20px;
+    background: linear-gradient(135deg, var(--primary-red), #b71c1c);
+    color: var(--white);
+    padding: 60px 20px;
     text-align: center;
+    box-shadow: var(--shadow);
 }
 
 header h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 header p {
-    font-size: 18px;
-    opacity: 0.95;
+    font-size: 20px;
+    opacity: 0.9;
+    font-weight: 400;
 }
 
 /* NAVIGATION */
 nav {
-    background-color: white;
+    background-color: var(--white);
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 10px;
+    padding: 15px;
     margin: 0;
     flex-wrap: wrap;
 }
 
 nav li {
-    margin: 5px 15px;
+    margin: 5px 20px;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--red);
-    font-weight: bold;
+    color: var(--dark-grey);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
 }
 
-/* MAIN */
+/* MAIN LAYOUT */
 main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 10px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 .section {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    animation: fadeIn 0.6s ease-in;
+    background-color: var(--white);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.section:hover {
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
-.section h2 {
-    color: var(--red);
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-red);
     margin-top: 0;
+    border-bottom: 2px solid var(--accent-red);
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* LISTS */
-ul {
-    padding-left: 20px;
+/* THEMES LIST styling */
+.theme-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-li {
-    margin-bottom: 8px;
+.theme-list li {
+    background-color: var(--accent-red);
+    color: var(--primary-red);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* CHARACTER CARDS (New Design) */
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.char-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.char-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    color: var(--dark-grey);
+}
+
+.char-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
 }
 
 /* QUOTE */
-.quote {
-    background-color: var(--light-red);
-    padding: 15px;
-    border-left: 6px solid var(--red);
+.quote-box {
+    background-color: #fff3f3;
+    padding: 30px;
+    border-left: 5px solid var(--primary-red);
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+}
+
+.quote-text {
+    font-family: 'Montserrat', serif; /* Serif for quotes looks nice */
     font-style: italic;
-    margin: 15px 0;
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
 }
 
-/* QUIZ */
-.quiz {
-    background-color: #fafafa;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
+/* QUIZ STYLING */
+.quiz-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #eee;
 }
 
-.quiz button {
-    margin-top: 10px;
-    padding: 8px 14px;
-    background-color: var(--red);
-    color: white;
-    border: none;
-    border-radius: 5px;
+.quiz-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn-quiz {
+    background-color: white;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    width: 100%;
+    text-align: left;
 }
 
-.quiz button:hover {
-    opacity: 0.9;
+.btn-quiz:hover {
+    background-color: var(--primary-red);
+    color: white;
 }
 
 .result {
     margin-top: 10px;
     font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
 }
 
 /* FOOTER */
 footer {
-    background-color: #ddd;
+    background-color: var(--dark-grey);
+    color: #aaa;
     text-align: center;
-    padding: 15px;
+    padding: 30px;
     font-size: 14px;
+    margin-top: 50px;
 }
 </style>
 </head>
@@ -159,7 +240,7 @@ footer {
 
 <header>
     <h1>Dear Martin</h1>
-    <p>A learning page about the novel by Nic Stone</p>
+    <p>A learning guide to the novel by Nic Stone</p>
 </header>
 
 <nav>
@@ -168,107 +249,132 @@ footer {
         <li><a href="#summary">Summary</a></li>
         <li><a href="#themes">Themes</a></li>
         <li><a href="#characters">Characters</a></li>
-        <li><a href="#quote">Quote</a></li>
         <li><a href="#quiz">Quiz</a></li>
     </ul>
 </nav>
 
 <main>
 
-<section class="section" id="author">
-    <h2>About the Author</h2>
-    <p>
-        Nic Stone is an American writer.
-        She writes books for young readers and teenagers.
-        <br><br>
-        Her books talk about racism, justice, and society.
-        <strong>Dear Martin</strong> was published in 2018.
-    </p>
-</section>
+    <section class="section" id="author">
+        <h2>About the Author</h2>
+        <p>
+            <strong>Nic Stone</strong> is an American author. She writes books for young adults (YA) and teenagers.
+        </p>
+        <p>
+            She wants to bring different cultures and diverse voices to literature.
+            <em>Dear Martin</em> was her first novel, published in 2017. It became a bestseller and started many important conversations about society.
+        </p>
+    </section>
 
-<section class="section" id="summary">
-    <h2>Summary</h2>
-    <p>
-        The story is about Justyce McAllister, a Black teenager.
-        He is smart and wants to become a lawyer.
-        <br><br>
-        One night, Justyce has a very unfair experience with the police.
-        After this, he starts writing letters to Dr. Martin Luther King Jr.
-        <br><br>
-        In the letters, he talks about racism, fear, and injustice.
-        The book shows problems in American society.
-    </p>
-</section>
+    <section class="section" id="summary">
+        <h2>Summary</h2>
+        <p>
+            The story follows <strong>Justyce McAllister</strong>, a 17-year-old Black student.
+            He is very smart, attends a private school, and wants to go to Yale University.
+        </p>
+        <p>
+            One night, Justyce tries to help his ex-girlfriend, but a police officer arrests him violently because of his skin color. This unfair event changes Justyce. To cope with his anger and confusion, he starts writing a diary in the form of letters to <strong>Dr. Martin Luther King Jr.</strong>
+        </p>
+        <p>
+            Justyce tries to see if Dr. King's peaceful teachings still work in the modern world.
+        </p>
+    </section>
 
-<section class="section" id="themes">
-    <h2>Main Themes</h2>
-    <ul>
-        <li>Racism</li>
-        <li>Justice and injustice</li>
-        <li>Police violence</li>
-        <li>Identity</li>
-        <li>Friendship</li>
-    </ul>
-</section>
+    <section class="section" id="themes">
+        <h2>Main Themes</h2>
+        <p>The book explores difficult but real topics:</p>
+        <ul class="theme-list">
+            <li>Racism & Racial Profiling</li>
+            <li>Police Brutality</li>
+            <li>Identity & Belonging</li>
+            <li>Privilege</li>
+            <li>Social Justice</li>
+        </ul>
+    </section>
 
-<section class="section" id="characters">
-    <h2>Main Characters</h2>
-    <ul>
-        <li><strong>Justyce McAllister:</strong> Main character, thoughtful and calm.</li>
-        <li><strong>Quan Banks:</strong> His childhood friend.</li>
-        <li><strong>Manny Rivers:</strong> A student with racist views.</li>
-        <li><strong>Jared:</strong> Justyce’s best friend.</li>
-    </ul>
-</section>
+    <section class="section" id="characters">
+        <h2>Main Characters</h2>
+        <div class="char-grid">
+            
+            <div class="char-card">
+                <h3>Justyce McAllister</h3>
+                <p>The protagonist. He is observant, intelligent, and struggles to find his place in society.</p>
+            </div>
 
-<section class="section" id="quote">
-    <h2>Important Quote</h2>
-    <p class="quote">
-        “I can’t change where I come from, but I can change where I’m going.”
-    </p>
-    <p>
-        This quote means that Justyce believes in change and a better future.
-    </p>
-</section>
+            <div class="char-card">
+                <h3>Manny Rivers</h3>
+                <p>Justyce’s best friend. He is wealthy and Black, but he often ignores racism to fit in.</p>
+            </div>
 
-<section class="section" id="quiz">
-    <h2>Mini Quiz</h2>
+            <div class="char-card">
+                <h3>SJ (Sarah-Jane)</h3>
+                <p>Justyce's debate partner and friend. She is Jewish and speaks out against racism.</p>
+            </div>
 
-    <div class="quiz">
-        <p><strong>1. Who is Justyce?</strong></p>
-        <button onclick="answer(1)">A Black teenager and good student</button><br>
-        <button onclick="wrong(1)">A police officer</button>
+            <div class="char-card">
+                <h3>Jared Christensen</h3>
+                <p>A white classmate. At the start, he makes racist jokes and does not understand Justyce's struggle.</p>
+            </div>
 
-        <div id="result1" class="result"></div>
-    </div>
+        </div>
+    </section>
 
-    <div class="quiz">
-        <p><strong>2. Why does Justyce write letters?</strong></p>
-        <button onclick="answer(2)">To talk about racism and injustice</button><br>
-        <button onclick="wrong(2)">To become famous</button>
+    <section class="section" id="quote">
+        <h2>Key Quote</h2>
+        <div class="quote-box">
+            <div class="quote-text">
+                “You can't change how people look at you, but you can change how you look at yourself.”
+            </div>
+            <small>— Meaning: Self-respect is more important than the opinions of others.</small>
+        </div>
+    </section>
 
-        <div id="result2" class="result"></div>
-    </div>
-</section>
+    <section class="section" id="quiz">
+        <h2>Mini Quiz</h2>
+        <p>Test your knowledge about the book!</p>
+
+        <div class="quiz-container">
+            <span class="quiz-question">1. Who does Justyce write letters to?</span>
+            <button class="btn-quiz" onclick="checkAnswer(1, 'correct')">A) Dr. Martin Luther King Jr.</button>
+            <button class="btn-quiz" onclick="checkAnswer(1, 'wrong')">B) The President of the USA</button>
+            <div id="result1" class="result"></div>
+        </div>
+
+        <div class="quiz-container">
+            <span class="quiz-question">2. What happens to Justyce at the beginning?</span>
+            <button class="btn-quiz" onclick="checkAnswer(2, 'wrong')">A) He wins a debate competition.</button>
+            <button class="btn-quiz" onclick="checkAnswer(2, 'correct')">B) He is wrongfully handcuffed by police.</button>
+            <div id="result2" class="result"></div>
+        </div>
+
+    </section>
 
 </main>
 
 <footer>
-    <p>Learning page by Vincent</p>
+    <p>Learning Page Project by Vincent</p>
 </footer>
 
 <script>
-function answer(n) {
-    document.getElementById("result" + n).innerHTML = "Correct ✔️";
-    document.getElementById("result" + n).style.color = "green";
-}
+    // Simplified and Improved Logic
+    function checkAnswer(questionNum, status) {
+        const resultDiv = document.getElementById("result" + questionNum);
+        
+        // Reset style
+        resultDiv.style.display = "block";
+        
+        if (status === 'correct') {
+            resultDiv.innerHTML = "Correct! ✔️ Well done.";
+            resultDiv.style.backgroundColor = "#d4edda"; // Light green
+            resultDiv.style.color = "#155724";
+        } else {
+            resultDiv.innerHTML = "Not correct ❌. Try to remember the summary.";
+            resultDiv.style.backgroundColor = "#f8d7da"; // Light red
+            resultDiv.style.color = "#721c24";
+        }
+    }
 
-function wrong(n) {
-    document.getElementById("result" + n).innerHTML = "Not correct ❌ Try again.";
-    document.getElementById("result" + n).style.color = "red";
-}
-
-console.log("Advanced Dear Martin page loaded");
+    console.log("Dear Martin page loaded successfully.");
 </script>
 
 </body>
