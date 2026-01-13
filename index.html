@@ -3,63 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dear Martin – Learning Page</title>
+<title>Dear Martin – Interactive Learning</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* CSS VARIABLES FOR CONSISTENCY */
+/* --- ROOT VARIABLES --- */
 :root {
-    --primary-red: #d32f2f;       /* Darker, more serious red */
-    --accent-red: #ffcdd2;        /* Light red for backgrounds */
-    --dark-grey: #333;
-    --light-bg: #f4f6f8;
+    --primary-red: #c62828;       /* Strong Red */
+    --light-red: #ffcdd2;         /* Background Red */
+    --primary-blue: #1565c0;      /* For Chatbot */
+    --dark-grey: #2c3e50;
+    --light-bg: #f4f7f6;
     --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif; /* Cleaner text font */
+    font-family: 'Open Sans', sans-serif;
     background-color: var(--light-bg);
     color: var(--dark-grey);
-    line-height: 1.7;
+    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* --- HEADER --- */
 header {
-    background: linear-gradient(135deg, var(--primary-red), #b71c1c);
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
     color: var(--white);
-    padding: 60px 20px;
+    padding: 50px 20px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px;
-    margin: 0 0 10px 0;
-    font-weight: 700;
+    font-size: 3rem;
+    margin: 0;
     letter-spacing: 1px;
 }
 
 header p {
-    font-size: 20px;
+    font-size: 1.2rem;
     opacity: 0.9;
-    font-weight: 400;
+    margin-top: 10px;
 }
 
-/* NAVIGATION */
+/* --- NAVIGATION --- */
 nav {
     background-color: var(--white);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 nav ul {
@@ -71,73 +70,45 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav li {
-    margin: 5px 20px;
-}
+nav li { margin: 0 15px; }
 
 nav a {
     text-decoration: none;
     color: var(--dark-grey);
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 0.9rem;
     transition: color 0.3s;
 }
 
-nav a:hover {
-    color: var(--primary-red);
-    border-bottom: 2px solid var(--primary-red);
-}
+nav a:hover { color: var(--primary-red); }
 
-/* MAIN LAYOUT */
+/* --- MAIN CONTENT --- */
 main {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
+    padding-bottom: 100px; /* Space for chatbot */
 }
 
 .section {
     background-color: var(--white);
     padding: 40px;
     margin-bottom: 30px;
-    border-radius: 12px;
+    border-radius: 15px;
     box-shadow: var(--shadow);
-    transition: transform 0.2s;
-}
-
-.section:hover {
-    transform: translateY(-2px); /* Slight lift effect */
+    border-top: 5px solid var(--primary-red);
 }
 
 h2 {
     font-family: 'Montserrat', sans-serif;
     color: var(--primary-red);
     margin-top: 0;
-    border-bottom: 2px solid var(--accent-red);
-    display: inline-block;
-    padding-bottom: 5px;
+    font-size: 1.8rem;
 }
 
-/* THEMES LIST styling */
-.theme-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.theme-list li {
-    background-color: var(--accent-red);
-    color: var(--primary-red);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* CHARACTER CARDS (New Design) */
+/* --- CHARACTER GRID --- */
 .char-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -148,90 +119,196 @@ h2 {
 .char-card {
     background: #fff;
     border: 1px solid #eee;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.char-card h3 {
-    margin: 10px 0 5px 0;
-    font-size: 18px;
-    color: var(--dark-grey);
-}
-
-.char-card p {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
-}
-
-/* QUOTE */
-.quote-box {
-    background-color: #fff3f3;
-    padding: 30px;
-    border-left: 5px solid var(--primary-red);
-    border-radius: 0 8px 8px 0;
-    margin: 20px 0;
-}
-
-.quote-text {
-    font-family: 'Montserrat', serif; /* Serif for quotes looks nice */
-    font-style: italic;
-    font-size: 20px;
-    color: #444;
-    margin-bottom: 10px;
-}
-
-/* QUIZ STYLING */
-.quiz-container {
-    background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    margin-top: 20px;
-    border: 1px solid #eee;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.quiz-question {
+.char-card:hover { transform: translateY(-5px); }
+
+.char-card h3 { margin: 10px 0 5px; color: var(--dark-grey); }
+.char-card p { font-size: 0.9rem; color: #555; }
+
+/* --- QUIZ STYLING (INTERACTIVE) --- */
+.quiz-wrapper {
+    text-align: center;
+    padding: 10px;
+}
+
+.question-box {
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
+    margin-bottom: 20px;
 }
 
-.btn-quiz {
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.quiz-btn {
     background-color: white;
     border: 2px solid var(--primary-red);
     color: var(--primary-red);
-    padding: 10px 20px;
-    margin: 5px 0;
-    border-radius: 25px;
+    padding: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s;
-    width: 100%;
-    text-align: left;
+    font-weight: 600;
+    transition: all 0.2s;
 }
 
-.btn-quiz:hover {
+.quiz-btn:hover {
     background-color: var(--primary-red);
     color: white;
 }
 
-.result {
-    margin-top: 10px;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-    display: none; /* Hidden by default */
+.quiz-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-/* FOOTER */
+.feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+.next-btn {
+    background-color: var(--dark-grey);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: none; /* Hidden initially */
+}
+
+.next-btn:hover { background-color: black; }
+
+/* --- CHATBOT STYLING --- */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.chat-button:hover { transform: scale(1.1); }
+
+.chat-window {
+    background-color: white;
+    width: 320px;
+    height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.chat-header {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-chat { cursor: pointer; }
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-msg {
+    background-color: #e3f2fd;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.user-msg {
+    background-color: var(--primary-blue);
+    color: white;
+    margin-left: auto; /* Push to right */
+    border-bottom-right-radius: 2px;
+    text-align: right;
+}
+
+.chat-input-area {
+    display: flex;
+    border-top: 1px solid #eee;
+    padding: 10px;
+    background: white;
+}
+
+.chat-input-area input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.chat-input-area button {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* Footer */
 footer {
     background-color: var(--dark-grey);
-    color: #aaa;
+    color: #bbb;
     text-align: center;
     padding: 30px;
-    font-size: 14px;
-    margin-top: 50px;
+    font-size: 0.9rem;
 }
 </style>
 </head>
@@ -240,15 +317,15 @@ footer {
 
 <header>
     <h1>Dear Martin</h1>
-    <p>A learning guide to the novel by Nic Stone</p>
+    <p>Understanding the Novel by Nic Stone</p>
 </header>
 
 <nav>
     <ul>
         <li><a href="#author">Author</a></li>
         <li><a href="#summary">Summary</a></li>
-        <li><a href="#themes">Themes</a></li>
         <li><a href="#characters">Characters</a></li>
+        <li><a href="#themes">Themes</a></li>
         <li><a href="#quiz">Quiz</a></li>
     </ul>
 </nav>
@@ -258,123 +335,241 @@ footer {
     <section class="section" id="author">
         <h2>About the Author</h2>
         <p>
-            <strong>Nic Stone</strong> is an American author. She writes books for young adults (YA) and teenagers.
+            <strong>Nic Stone</strong> is an American author. She wrote <em>Dear Martin</em> in 2017 to explore real problems in society.
         </p>
         <p>
-            She wants to bring different cultures and diverse voices to literature.
-            <em>Dear Martin</em> was her first novel, published in 2017. It became a bestseller and started many important conversations about society.
+            She wanted to write a story that asks: "What would Dr. Martin Luther King Jr. say about the world today?"
         </p>
     </section>
 
     <section class="section" id="summary">
         <h2>Summary</h2>
         <p>
-            The story follows <strong>Justyce McAllister</strong>, a 17-year-old Black student.
-            He is very smart, attends a private school, and wants to go to Yale University.
+            <strong>Justyce McAllister</strong> is a top student at a private high school. He is Black, and most of his classmates are white. He wants to go to Yale University.
         </p>
         <p>
-            One night, Justyce tries to help his ex-girlfriend, but a police officer arrests him violently because of his skin color. This unfair event changes Justyce. To cope with his anger and confusion, he starts writing a diary in the form of letters to <strong>Dr. Martin Luther King Jr.</strong>
+            One night, he tries to help his ex-girlfriend, but a police officer arrests him aggressively because of his skin color. Justyce is shocked.
         </p>
         <p>
-            Justyce tries to see if Dr. King's peaceful teachings still work in the modern world.
+            To understand his feelings, he starts writing a diary. He writes letters to <strong>Dr. Martin Luther King Jr.</strong> ("Dear Martin"). He tries to be like Dr. King, but life gets harder when he faces more racism and violence.
         </p>
-    </section>
-
-    <section class="section" id="themes">
-        <h2>Main Themes</h2>
-        <p>The book explores difficult but real topics:</p>
-        <ul class="theme-list">
-            <li>Racism & Racial Profiling</li>
-            <li>Police Brutality</li>
-            <li>Identity & Belonging</li>
-            <li>Privilege</li>
-            <li>Social Justice</li>
-        </ul>
     </section>
 
     <section class="section" id="characters">
         <h2>Main Characters</h2>
         <div class="char-grid">
-            
             <div class="char-card">
-                <h3>Justyce McAllister</h3>
-                <p>The protagonist. He is observant, intelligent, and struggles to find his place in society.</p>
+                <h3>Justyce</h3>
+                <p>The main character. Smart, thoughtful, and trying to find his identity.</p>
             </div>
-
             <div class="char-card">
-                <h3>Manny Rivers</h3>
-                <p>Justyce’s best friend. He is wealthy and Black, but he often ignores racism to fit in.</p>
+                <h3>Manny</h3>
+                <p>Justyce's best friend. He is wealthy and fun, but avoids serious talk about race.</p>
             </div>
-
             <div class="char-card">
-                <h3>SJ (Sarah-Jane)</h3>
-                <p>Justyce's debate partner and friend. She is Jewish and speaks out against racism.</p>
+                <h3>SJ</h3>
+                <p>Justyce's debate partner. She is supportive, smart, and fights for justice.</p>
             </div>
-
             <div class="char-card">
-                <h3>Jared Christensen</h3>
-                <p>A white classmate. At the start, he makes racist jokes and does not understand Justyce's struggle.</p>
+                <h3>Jared</h3>
+                <p>A classmate who often makes insensitive jokes and doesn't understand privilege.</p>
             </div>
-
         </div>
     </section>
 
-    <section class="section" id="quote">
-        <h2>Key Quote</h2>
-        <div class="quote-box">
-            <div class="quote-text">
-                “You can't change how people look at you, but you can change how you look at yourself.”
-            </div>
-            <small>— Meaning: Self-respect is more important than the opinions of others.</small>
-        </div>
+    <section class="section" id="themes">
+        <h2>Themes</h2>
+        <ul>
+            <li><strong>Racism:</strong> How people are judged by their skin color.</li>
+            <li><strong>Police Brutality:</strong> Unfair violence by authority figures.</li>
+            <li><strong>Identity:</strong> Trying to fit in at school vs. at home.</li>
+            <li><strong>Friendship:</strong> Loyalty and understanding between friends.</li>
+        </ul>
     </section>
 
     <section class="section" id="quiz">
-        <h2>Mini Quiz</h2>
-        <p>Test your knowledge about the book!</p>
-
-        <div class="quiz-container">
-            <span class="quiz-question">1. Who does Justyce write letters to?</span>
-            <button class="btn-quiz" onclick="checkAnswer(1, 'correct')">A) Dr. Martin Luther King Jr.</button>
-            <button class="btn-quiz" onclick="checkAnswer(1, 'wrong')">B) The President of the USA</button>
-            <div id="result1" class="result"></div>
+        <h2>Knowledge Quiz</h2>
+        <div class="quiz-wrapper" id="quiz-container">
+            <div class="question-box" id="question-text">Loading...</div>
+            <div class="options-container" id="options-area"></div>
+            <div class="feedback" id="feedback-text"></div>
+            <button class="next-btn" id="next-button" onclick="nextQuestion()">Next Question ➜</button>
         </div>
-
-        <div class="quiz-container">
-            <span class="quiz-question">2. What happens to Justyce at the beginning?</span>
-            <button class="btn-quiz" onclick="checkAnswer(2, 'wrong')">A) He wins a debate competition.</button>
-            <button class="btn-quiz" onclick="checkAnswer(2, 'correct')">B) He is wrongfully handcuffed by police.</button>
-            <div id="result2" class="result"></div>
-        </div>
-
     </section>
 
 </main>
 
 <footer>
-    <p>Learning Page Project by Vincent</p>
+    <p>Learning Page Project • Created by Vincent</p>
 </footer>
 
+<div class="chat-widget">
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>Ask the Bot 🤖</span>
+            <span class="close-chat" onclick="toggleChat()">✖</span>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-msg">Hello! Ask me about the author, Justyce, or the summary.</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type here..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+    <button class="chat-button" onclick="toggleChat()">💬</button>
+</div>
+
 <script>
-    // Simplified and Improved Logic
-    function checkAnswer(questionNum, status) {
-        const resultDiv = document.getElementById("result" + questionNum);
+    /* --- QUIZ LOGIC --- */
+    const quizData = [
+        {
+            question: "1. Who does Justyce write his letters to?",
+            options: ["His father", "Dr. Martin Luther King Jr.", "The President", "His teacher"],
+            correct: 1 // Index of correct answer
+        },
+        {
+            question: "2. Which university does Justyce want to attend?",
+            options: ["Harvard", "Stanford", "Yale", "Oxford"],
+            correct: 2
+        },
+        {
+            question: "3. Who is Justyce's best friend?",
+            options: ["Jared", "SJ", "Manny", "Quan"],
+            correct: 2
+        },
+        {
+            question: "4. Why is Justyce arrested in the beginning?",
+            options: ["He stole a car", "He was helping his ex-girlfriend", "He was fighting", "He was speeding"],
+            correct: 1
+        }
+    ];
+
+    let currentQIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const qData = quizData[currentQIndex];
+        document.getElementById("question-text").innerText = qData.question;
+        document.getElementById("feedback-text").innerText = "";
+        document.getElementById("next-button").style.display = "none";
         
-        // Reset style
-        resultDiv.style.display = "block";
-        
-        if (status === 'correct') {
-            resultDiv.innerHTML = "Correct! ✔️ Well done.";
-            resultDiv.style.backgroundColor = "#d4edda"; // Light green
-            resultDiv.style.color = "#155724";
+        const optionsArea = document.getElementById("options-area");
+        optionsArea.innerHTML = ""; // Clear old buttons
+
+        qData.options.forEach((opt, index) => {
+            const btn = document.createElement("button");
+            btn.className = "quiz-btn";
+            btn.innerText = opt;
+            btn.onclick = () => checkAnswer(index, btn);
+            optionsArea.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(selectedIndex, btnElement) {
+        // Disable all buttons after selection
+        const buttons = document.querySelectorAll(".quiz-btn");
+        buttons.forEach(b => {
+            b.classList.add("disabled");
+            b.onclick = null;
+        });
+
+        const correctIndex = quizData[currentQIndex].correct;
+        const feedback = document.getElementById("feedback-text");
+
+        if (selectedIndex === correctIndex) {
+            btnElement.style.backgroundColor = "#d4edda"; // Green
+            btnElement.style.color = "#155724";
+            btnElement.style.borderColor = "#155724";
+            feedback.innerText = "Correct! ✔️";
+            feedback.style.color = "green";
+            score++;
         } else {
-            resultDiv.innerHTML = "Not correct ❌. Try to remember the summary.";
-            resultDiv.style.backgroundColor = "#f8d7da"; // Light red
-            resultDiv.style.color = "#721c24";
+            btnElement.style.backgroundColor = "#f8d7da"; // Red
+            btnElement.style.color = "#721c24";
+            feedback.innerText = "Wrong ❌. The correct answer was: " + quizData[currentQIndex].options[correctIndex];
+            feedback.style.color = "red";
+        }
+
+        // Show Next Button
+        document.getElementById("next-button").style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+        currentQIndex++;
+        if (currentQIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            // End of quiz
+            document.getElementById("quiz-container").innerHTML = `
+                <h3>Quiz Finished! 🎉</h3>
+                <p>You scored <strong>${score}</strong> out of <strong>${quizData.length}</strong>.</p>
+                <button class="next-btn" style="display:inline-block" onclick="location.reload()">Restart Quiz</button>
+            `;
         }
     }
 
-    console.log("Dear Martin page loaded successfully.");
+    // Start Quiz on Load
+    loadQuestion();
+
+
+    /* --- CHATBOT LOGIC --- */
+    function toggleChat() {
+        const win = document.getElementById("chatWindow");
+        if (win.style.display === "flex") {
+            win.style.display = "none";
+        } else {
+            win.style.display = "flex";
+        }
+    }
+
+    function handleEnter(event) {
+        if (event.key === "Enter") sendMessage();
+    }
+
+    function sendMessage() {
+        const inputField = document.getElementById("chatInput");
+        const userText = inputField.value.trim();
+        if (userText === "") return;
+
+        // Add User Message
+        addMessage(userText, "user-msg");
+        inputField.value = "";
+
+        // Simulate Bot Response (Simple Logic)
+        setTimeout(() => {
+            const botResponse = getBotResponse(userText.toLowerCase());
+            addMessage(botResponse, "bot-msg");
+        }, 600);
+    }
+
+    function addMessage(text, className) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "message " + className;
+        msgDiv.innerText = text;
+        
+        const chatContainer = document.getElementById("chatMessages");
+        chatContainer.appendChild(msgDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight; // Auto scroll to bottom
+    }
+
+    function getBotResponse(input) {
+        if (input.includes("author") || input.includes("nic stone")) {
+            return "The author is Nic Stone. She writes YA novels about social justice.";
+        } else if (input.includes("summary") || input.includes("about")) {
+            return "The book is about Justyce, a Black teen who faces racism and writes letters to MLK.";
+        } else if (input.includes("justyce")) {
+            return "Justyce McAllister is the main character. He is smart and wants to go to Yale.";
+        } else if (input.includes("manny")) {
+            return "Manny is Justyce's wealthy best friend.";
+        } else if (input.includes("sj") || input.includes("sarah")) {
+            return "SJ is Justyce's debate partner and romantic interest.";
+        } else if (input.includes("hello") || input.includes("hi")) {
+            return "Hello! Do you have questions about the book?";
+        } else {
+            return "I am just a simple bot. Try asking about 'Justyce', 'The Author', or 'Summary'.";
+        }
+    }
 </script>
 
 </body>
